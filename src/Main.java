@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        user user = new user("Alex", 20, 68.5);
+        User user1 = new User("Alex", 20, 68.5);
 
         WorkoutRoutine w1 = new WorkoutRoutine("Cardio", 30, 250);
         WorkoutRoutine w2 = new WorkoutRoutine("Strength", 45, 400);
@@ -10,7 +10,7 @@ public class Main {
         FitnessApp app = new FitnessApp();
 
         System.out.println("=== USER INFO ===");
-        user.printInfo();
+        user1.printInfo();
 
         System.out.println("\n=== WORKOUTS ===");
         w1.printInfo();
