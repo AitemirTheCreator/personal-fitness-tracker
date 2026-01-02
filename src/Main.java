@@ -2,29 +2,31 @@ public class Main {
 
     public static void main(String[] args) {
 
-        User user1 = new User("Alex", 20, 68.5);
-
-        WorkoutRoutine w1 = new WorkoutRoutine("Cardio", 30, 250);
-        WorkoutRoutine w2 = new WorkoutRoutine("Strength", 45, 400);
+        User user = new User("Alex", 20, 68.5);
+        user.printInfo();
 
         FitnessApp app = new FitnessApp();
 
-        System.out.println("=== USER INFO ===");
-        user1.printInfo();
+        WorkoutRoutine w1 = new CardioWorkout("Morning Run", 30, 250);
+        WorkoutRoutine w2 = new StrengthWorkout("Gym Training", 45, 400);
+        WorkoutRoutine w3 = new CardioWorkout("Cycling", 60, 500);
 
-        System.out.println("\n=== WORKOUTS ===");
-        w1.printInfo();
-        w2.printInfo();
+        app.addWorkout(w1);
+        app.addWorkout(w2);
+        app.addWorkout(w3);
 
-        System.out.println("\n=== COMPARISON ===");
-        int result = app.compareCalories(w1, w2);
+        System.out.println("\n=== ALL WORKOUTS ===");
+        app.printAllWorkouts();
 
-        if (result > 0) {
-            System.out.println("First workout burns more calories.");
-        } else if (result < 0) {
-            System.out.println("Second workout burns more calories.");
-        } else {
-            System.out.println("Both workouts burn the same calories.");
-        }
+        System.out.println("\n=== LONG WORKOUTS (>40 min) ===");
+        app.printLongWorkouts(40);
+
+        System.out.println("\n=== SORTED BY CALORIES ===");
+        app.sortByCalories();
+        app.printAllWorkouts();
+
+        System.out.println("\n=== SEARCH WORKOUT ===");
+        WorkoutRoutine found = app.findWorkoutByName("Gym Training");
+        System.out.println(found != null ? found : "Workout not found");
     }
 }
