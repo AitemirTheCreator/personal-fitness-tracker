@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHandler {
-    // Параметры подключения (измените на свои)
+    // Параметры подключения
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/FitnessAppTracker_db";
     private static final String USER = "postgres";
     private static final String PASS = "timkaandrakhat"; // Укажите ваш пароль
